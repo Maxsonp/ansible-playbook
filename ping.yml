@@ -1,13 +1,16 @@
 ---
-- name: Ping dari Juniper ke 8.8.8.8
+- name: Ping dari Juniper ke target
   hosts: JUNIPER
   gather_facts: no
 
+  vars:
+    ping_dest: 8.8.8.8
+
   tasks:
-    - name: Jalankan ping
+    - name: Jalankan ping ke {{ ping_dest }}
       junipernetworks.junos.junos_command:
         commands:
-          - ping 8.8.8.8 count 5
+          - "ping {{ ping_dest }} count 5"
       register: ping_result
 
     - name: Tampilkan hasil ping
