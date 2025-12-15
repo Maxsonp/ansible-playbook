@@ -1,0 +1,15 @@
+---
+- name: Ping dari Juniper ke 8.8.8.8
+  hosts: JUNIPER
+  gather_facts: no
+
+  tasks:
+    - name: Jalankan ping
+      junipernetworks.junos.junos_command:
+        commands:
+          - ping 8.8.8.8 count 5
+      register: ping_result
+
+    - name: Tampilkan hasil ping
+      debug:
+        var: ping_result.stdout_lines

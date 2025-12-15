@@ -1,0 +1,15 @@
+---
+- name: Traceroute dari Juniper ke 8.8.8.8
+  hosts: JUNIPER
+  gather_facts: no
+
+  tasks:
+    - name: Jalankan Traceroute
+      junipernetworks.junos.junos_command:
+        commands:
+          - show route 8.8.8.8
+      register: route_result
+
+    - name: Tampilkan hasil route
+      debug:
+        var: route_result.stdout_lines
