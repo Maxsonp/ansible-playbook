@@ -6,12 +6,12 @@
   vars:
         # === INPUT SCHEMA FOR FRONTEND ===
     input_schema:
-      - name: ping_dest
+      ping_dest:
         label: "Ping Destination"
-        type: "string"
+        type: string
         required: true
         default: "8.8.8.8"
-        description: "IP address or hostname to ping from Juniper device"
+        description: "IP address or hostname to ping"
 
   tasks:
     - name: Jalankan ping ke {{ ping_dest }}
