@@ -4,7 +4,11 @@
   gather_facts: no
 
   vars:
-    ping_dest:
+    input_schema:
+      - name: ping_dest
+        label: "Ping Destination"
+
+    ping_dest: "{{ ping_dest | mandatory }}"
 
   tasks:
     - name: Jalankan ping ke {{ ping_dest }}
