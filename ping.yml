@@ -4,10 +4,16 @@
   gather_facts: no
 
   vars:
+        # === INPUT SCHEMA FOR FRONTEND ===
     input_schema:
       - name: ping_dest
         label: "Ping Destination"
+        type: "string"
+        required: true
+        placeholder: "8.8.8.8"
+        description: "IP address or hostname to ping from Juniper device"
 
+    # === EXECUTION VARIABLE ===
     ping_dest: "{{ ping_dest | mandatory }}"
 
   tasks:
