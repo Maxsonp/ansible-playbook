@@ -13,9 +13,6 @@
         default: "8.8.8.8"
         description: "IP address or hostname to ping from Juniper device"
 
-    # === EXECUTION VARIABLE ===
-    ping_dest: "{{ ping_dest | mandatory }}"
-
   tasks:
     - name: Jalankan ping ke {{ ping_dest }}
       junipernetworks.junos.junos_command:
