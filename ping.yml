@@ -10,7 +10,7 @@
         label: "Ping Destination"
         type: "string"
         required: true
-        placeholder: "8.8.8.8"
+        default: "8.8.8.8"
         description: "IP address or hostname to ping from Juniper device"
 
     # === EXECUTION VARIABLE ===
